@@ -4,6 +4,22 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PK Lights – Wholesale LED & Electrical Supplier</title>
+<!-- Indic script font support -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- SEO & OG meta -->
+<meta name="description" content="PK Lights — B2B wholesale supplier of LED lighting & electrical products across South India. Bulk orders, daily dispatch, competitive prices." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://jestinpk.github.io/staticweb-pklights/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="PK Lights – Wholesale LED & Electrical Supplier" />
+<meta property="og:description" content="B2B wholesale supplier of LED lighting & electrical products across South India. Bulk orders, daily dispatch, competitive prices." />
+<meta property="og:url" content="https://jestinpk.github.io/staticweb-pklights/" />
+<meta property="og:image" content="https://jestinpk.github.io/staticweb-pklights/logo.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="PK Lights – Wholesale LED & Electrical Supplier" />
+<meta name="twitter:description" content="B2B wholesale supplier of LED lighting & electrical products across South India." />
 <link rel="icon" type="image/png" href="logo.png" />
 <link rel="apple-touch-icon" href="logo.png" />
 <link rel="shortcut icon" href="logo.png" />
@@ -31,10 +47,11 @@
 }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background: var(--light);
-  color: var(--text-dark);
-  line-height: 1.6;
+  font-family: 'Segoe UI', system-ui,
+    'Noto Sans Malayalam', 'Noto Sans Tamil',
+    'Noto Sans Kannada', 'Noto Sans Telugu',
+    sans-serif;
+  background: var(--light); color: var(--text-dark); line-height: 1.6;
   overflow-x: hidden;
 }
 a { color: inherit; text-decoration: none; }
@@ -99,10 +116,12 @@ nav {
 #menu-toggle { display: none; }
 #menu-toggle:checked ~ .nav-links {
   display: flex; flex-direction: column;
-  position: absolute; top: 100%; left: 0; width: 100%;
-  background: rgba(255,255,255,.97);
+  position: fixed; top: 64px; left: 0; width: 100%; max-height: calc(100vh - 64px); overflow-y: auto;
+  background: #fff;
+  z-index: 199;
   padding: 1rem 1.25rem 1.5rem; gap: 1rem;
   border-bottom: 1px solid rgba(245,158,11,.15);
+  box-shadow: 0 8px 32px rgba(0,0,0,.12);
 }
 .lang-select {
   background: rgba(245,158,11,.08);
@@ -130,6 +149,7 @@ nav {
   position: absolute; border-radius: 50%;
   border: 1px solid rgba(245,158,11,.1);
   top: 50%; left: 50%; animation: expand-ring 7s ease-out infinite;
+  z-index: 0; pointer-events: none;
 }
 #hero .ring:nth-child(1) { width:500px; height:500px; animation-delay:0s; }
 #hero .ring:nth-child(2) { width:750px; height:750px; animation-delay:2.3s; }
@@ -624,7 +644,7 @@ footer::after {
 
 /* WhatsApp FAB */
 .whatsapp-fab {
-  position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 999;
+  position: fixed; bottom: 1.5rem; right: 1.5rem; left: auto; z-index: 999;
   display: flex; align-items: center; gap: .55rem;
   background: #25D366; color: #fff; font-weight: 700; font-size: .88rem;
   padding: .7rem 1.2rem .7rem .9rem; border-radius: 50px;
@@ -632,6 +652,10 @@ footer::after {
 }
 .whatsapp-fab:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 10px 32px rgba(37,211,102,.55); }
 .whatsapp-fab svg { width: 22px; height: 22px; flex-shrink: 0; }
+@media (max-width: 768px) {
+  .whatsapp-fab { padding: .7rem; border-radius: 50%; }
+  .whatsapp-fab span { display: none; }
+}
 
 @media (max-width: 768px) {
   .hamburger { display: flex; }
