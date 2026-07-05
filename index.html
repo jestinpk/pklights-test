@@ -608,9 +608,8 @@ footer::after {
 /* Bottom bar */
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding: 1.5rem 0 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .footer-bottom-brand { display: flex; align-items: center; gap: .85rem; }
-.footer-bottom-logo { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1.5px solid rgba(245,158,11,.6); background: rgba(245,158,11,.06); color: #f59e0b; line-height: 1; }
-.footer-bottom-logo .logo-pk { font-weight: 900; font-size: .95rem; letter-spacing: .5px; }
-.footer-bottom-logo .logo-lights { font-weight: 700; font-size: .48rem; letter-spacing: 1.5px; text-transform: uppercase; }
+.footer-bottom-logo { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; overflow: hidden; border: 2px solid rgba(245,158,11,.45); box-shadow: 0 2px 12px rgba(245,158,11,.18); }
+.footer-bottom-logo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
 .footer-bottom p { color: #475569; font-size: .82rem; }
 .footer-bottom-right { display: flex; align-items: center; gap: 1.4rem; }
 .footer-bottom-right a { color: #94a3b8; font-size: .85rem; font-weight: 600; transition: color .2s; }
@@ -1264,8 +1263,7 @@ footer::after {
     <div class="footer-bottom">
       <div class="footer-bottom-brand">
         <div class="footer-bottom-logo">
-          <span class="logo-pk">PK</span>
-          <span class="logo-lights">LIGHTS</span>
+          <img src="logo.png" alt="PK Lights" />
         </div>
         <div>
           <p data-i18n="footer_copy">© 2025 PK Lights. All rights reserved.</p>
