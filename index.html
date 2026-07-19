@@ -1491,9 +1491,14 @@ footer::after {
   if (!popup) return;
 
   // Show on every page load (mobile only — CSS hides on desktop)
-  window.addEventListener('load', function() {
-    setTimeout(function() { popup.classList.add('show'); }, 600);
-  });
+  // Auto-disables after offer expiry: 25 July 2026
+  var offerEnd = new Date('2026-07-25T23:59:59');
+  var isExpired = new Date() > offerEnd;
+  if (!isExpired) {
+    window.addEventListener('load', function() {
+      setTimeout(function() { popup.classList.add('show'); }, 600);
+    });
+  }
 
   function closePopup() {
     popup.style.transition = 'opacity .25s';
@@ -1515,6 +1520,11 @@ footer::after {
   function tickOffer() {
     var now = new Date(), end = new Date('2026-07-25T23:59:59');
     var diff = Math.max(0, Math.floor((end - now) / 1000));
+    if (diff <= 0) {
+      // Offer expired — hide popup entirely
+      popup.classList.remove('show');
+      return;
+    }
     var d = Math.floor(diff / 86400),
         h = Math.floor((diff % 86400) / 3600),
         m = Math.floor((diff % 3600) / 60),
