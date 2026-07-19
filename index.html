@@ -794,11 +794,8 @@ footer::after {
 .offer-img-wrap { position:relative; overflow:hidden; }
 .offer-img-wrap img {
   width:100%; display:block;
-  max-height:38vh; object-fit:cover; object-position:center top;
-}
-.offer-img-wrap::after {
-  content:''; position:absolute; bottom:0; left:0; right:0; height:55%;
-  background:linear-gradient(transparent,#0a0a0a);
+  object-fit:contain; object-position:center;
+  background:#0a0a0a;
 }
 .offer-close-x {
   position:absolute; top:.7rem; right:.7rem; z-index:3;
